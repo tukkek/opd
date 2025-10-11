@@ -1,0 +1,12 @@
+[submodule "libraries/range"]
+	path = libraries/range
+	url = https://github.com/tukkek/tuktk-range/
+[submodule "libraries/rpg"]
+	path = libraries/rpg
+	url = https://github.com/tukkek/tuktk-rpg/
+[submodule "libraries/fit"]
+	path = libraries/fit
+	url = https://github.com/tukkek/tuktk-fit/
+[submodule "libraries/array"]
+	path = libraries/array
+	url = https://github.com/tukkek/tuktk-array/
