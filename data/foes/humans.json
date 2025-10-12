@@ -1,0 +1,25 @@
+{
+  "savages":[
+    {"name":"Giant","brass":5,"brawl":5,"brain":4,"power":"Smash"},
+    {"name":"Berserker","brass":4,"brawl":5,"brain":3,"power":"Rage"},
+    {"name":"Shaman","brass":3,"brawl":2,"brain":4,"power":"Heal"},
+    {"name":"Tracker","brass":1,"brawl":3,"brain":2,"power":"Paralyze"},
+    {"name":"Gatherer","brass":1,"brawl":1,"brain":1,"power":"Surround"}
+  ],
+  "felons":[
+    {"name":"Gun-slinger","brass":3,"brawl":5,"brain":4,"power":"Aim"},
+    {"name":"Thug","brass":4,"brawl":3,"brain":2,"power":"Bounce"},
+    {"name":"Lackey","brass":2,"brawl":3,"brain":1,"power":"Flank"}
+  ],
+  "feral":[
+    {"name":"Wendigo","brass":5,"brawl":5,"brain":5,"power":"Consume"},
+    {"name":"Cannibal","brass":3,"brawl":3,"brain":3,"power":"Hunger"},
+    {"name":"Wretch","brass":2,"brawl":2,"brain":2,"power":"Hunger"}
+  ],
+  "traps":[
+    {"name":"Siren","brass":5,"brawl":1,"brain":5,"power":"Becon"},
+    {"name":"Mine","brass":1,"brawl":4,"brain":4,"power":"Blast"},
+    {"name":"Dart","brass":1,"brawl":3,"brain":3,"power":"Poison"},
+    {"name":"Spikes","brass":2,"brawl":2,"brain":2,"power":"Pit"}
+  ]
+}

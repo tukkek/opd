@@ -1,0 +1,25 @@
+{
+  "zombies":[
+    {"name":"Ghoul","brass":4,"brawl":4,"brain":4,"power":"Rot"},
+    {"name":"Zombie-soldier","brass":4,"brawl":3,"brain":2,"power":"Reanimate"},
+    {"name":"Zombie-dog","brass":2,"brawl":2,"brain":2,"power":"Reanimate"},
+    {"name":"Zombie","brass":1,"brawl":1,"brain":1,"power":"Reanimate"}
+  ],
+  "animators":[
+    {"name":"Arcanist","brass":3,"brawl":4,"brain":5,"power":"Summon ghoul"},
+    {"name":"Apprentice","brass":2,"brawl":3,"brain":4,"power":"Summon zombie"}
+  ],
+  "skeletons":[
+    {"name":"Warrior","brass":3,"brawl":4,"brain":2,"power":"Slash"},
+    {"name":"Archer","brass":1,"brawl":3,"brain":2,"power":"Pierce"}
+  ],
+  "buried":[
+    {"name":"Archmage","brass":5,"brawl":5,"brain":5,"power":"Summon undead"},
+    {"name":"Mummy","brass":5,"brawl":3,"brain":4,"power":"Rot"},
+    {"name":"Wraith","brass":3,"brawl":2,"brain":4,"power":"Chill"}
+  ],
+  "worship":[
+    {"name":"Bone-pillar","brass":5,"brawl":1,"brain":5,"power":"Summon skeletons"},
+    {"name":"Ward","brass":3,"brawl":1,"brain":3,"power":"Empower"}
+  ]
+}
