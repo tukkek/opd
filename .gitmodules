@@ -10,3 +10,6 @@
 [submodule "libraries/array"]
 	path = libraries/array
 	url = https://github.com/tukkek/tuktk-array/
+[submodule "libraries/rot"]
+	path = libraries/rot
+	url = https://github.com/ondras/rot.js/

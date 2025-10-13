@@ -1,0 +1,26 @@
+<!doctype HTML>
+<title>rot.js: native modules</title>
+<link rel="stylesheet" href="./style/client.css">
+<meta charset='UTF8'>
+
+<div id='map'>
+  <div class='controls'>
+    <button class='decrement'>←</button>
+    <button class='increment'>→</button>
+  </div>
+  <!--run-time canvas-->
+</div>
+<link rel="stylesheet" href="./style/map.css">
+
+<div id='text'>
+  <input type='text' class='title' value='Dungeon name'>
+</div>
+<link rel="stylesheet" href="./style/text.css">
+
+<div id='table'></div>
+<link rel="stylesheet" href="./style/table.css">
+
+<script type="module">
+  import * as clientm from './code/control/client.js'
+  clientm.ready()
+</script>

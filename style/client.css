@@ -1,0 +1,12 @@
+body{
+  margin:0;
+  padding:0;
+  display:grid;
+  grid-template-areas:
+    'map text'
+    'table text';
+  width:100vw;
+  height:100vh;
+  grid-template-rows:repeat(2,50vh);
+  grid-template-columns:repeat(2,50vw);
+}

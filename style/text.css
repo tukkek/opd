@@ -1,0 +1,12 @@
+#text{
+  grid-area:text;
+  display:grid;
+  align-content:baseline;
+  justify-content:center;
+  padding:1em;
+}
+#text .title{
+  width:30vw;
+  font-size:2em;
+  text-align:center;
+}
