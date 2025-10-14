@@ -1,5 +1,4 @@
 import * as tiem from '../../libraries/tie/tie.js'
-import * as savem from '../../libraries/save.js'
 import * as clientm from '../control/client.js'
 
 class Row extends tiem.Clone{
@@ -7,8 +6,9 @@ class Row extends tiem.Clone{
 }
 
 class Table extends tiem.Clone{
-  constructor(label){
+  constructor(label,rolls){
     super('template.table')
+    this.rolls=rolls
     this.select('.label').innerText=label
   }
 
@@ -21,19 +21,49 @@ class Table extends tiem.Clone{
     this.react(()=>update())
     return this
   }
-}
 
-var tables=['Foes','Loot'].map((text)=>new Table(text).create())
-
-export function draw(){
-  for(let i of Math.step(0,tables.length)){
-    let table=clientm.dungeon.tables[i]
-    let inputs=tables[i].selectall('input')
-    for(let j of Math.step(0,table.length)) inputs[j].value=table[j]
+  fill(texts){
+    let inputs=this.selectall('input')
+    for(let i of Math.step(0,texts.length)) inputs[i].value=texts[i]||this.rolls[i]
   }
 }
 
-export function ready(){draw()}
+export var foes=[
+  'External',
+  'Harder',
+  'Hard',
+  'Fair',
+  'Easy',
+  'Easier',
+]
+export var kind=[
+  'Lore',
+  'Lore',
+  'Gear',
+  'Gear',
+  'Gear',
+  'Resources',
+]
+export var loot=[
+  'Better',
+  'Good',
+  'Fair',
+  'Fair',
+  'Poor',
+  'Poorer',
+]
+
+var tables=[new Table('Foes',foes),new Table('Loot type',kind),new Table('Loot',loot)]
+
+export function draw(){
+  for(let i of Math.step(0,tables.length))
+    tables[i].fill(clientm.dungeon.tables[i])
+}
+
+export function ready(){
+  for(let table of tables) table.create()
+  draw()
+}
 
 function update(){
   for(let i of Math.step(0,tables.length)){
