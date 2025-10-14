@@ -14,7 +14,7 @@ class Table extends tiem.Clone{
 
   create(parent=false){
     super.create(parent)
-    for(let i of Math.step(1,6+1)){
+    for(let i of Math.step(6,0,-1)){
       let row=new Row().create(this.root)
       row.select('.roll').innerText=`${i}.`
     }
