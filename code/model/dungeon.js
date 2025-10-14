@@ -1,6 +1,4 @@
 import * as tablem from '../../libraries/table.js'
-import * as tablesm from '../view/tables.js'
-import * as rpgm from '../../libraries/rpg.js'
 
 const TRAP=new tablem.Table('Traps',[
   'Mechanical or magical trap guarding a reward',
@@ -26,7 +24,7 @@ const FEATURE=new tablem.Table('Feature',[
   'Combat with environmental-effects',
   KEY
 ])
-const COMBAT='Combat'
+const COMBAT=new tablem.Table('Foes').add('Foes',3).add('Foes, loot',3)
 const ROOM=new tablem.Table('Room').add('',3).add(COMBAT,2).add(FEATURE)
 const ROLL=new Object()
 
@@ -34,10 +32,6 @@ export class Room{
   constructor(description=ROLL){
     if(description==ROLL){
       description=ROOM.roll()
-      if(description==COMBAT){
-        let tier=tablesm.foes
-        description+=` (${tier[rpgm.high(0,tier.length-1)].toLowerCase()} foes)`
-      }
       if(description.length) description+='.'
     }
     this.description=description
