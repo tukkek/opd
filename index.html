@@ -1,6 +1,6 @@
 <!doctype HTML>
-<title>rot.js: native modules</title>
-<link rel="stylesheet" href="./style/client.css">
+<title>One-page dungeon</title>
+<link rel='stylesheet' href='./style/client.css'>
 <meta charset='UTF8'>
 
 <div id='map'>
@@ -10,17 +10,38 @@
   </div>
   <!--run-time canvas-->
 </div>
-<link rel="stylesheet" href="./style/map.css">
+<link rel='stylesheet' href='./style/map.css'>
 
 <div id='text'>
-  <input type='text' class='title' value='Dungeon name'>
+  <input type='text' class='title' placeholder='Dungeon name'>
+  <textarea class='intro' placeholder='Intro.'></textarea>
+  <ol>
+    <template id='room'><li><textarea class='room' placeholder='Room description.'></textarea></li></template>
+  </ol>
+  <textarea class='outro' placeholder='Outro.'></textarea>
+  <div class='controls'>
+    <button id='save'>Save</button>
+    <input type='file' id='load'>
+  </div>
 </div>
-<link rel="stylesheet" href="./style/text.css">
+<link rel='stylesheet' href='./style/text.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lobster+Two'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Noto+Sans'>
 
-<div id='table'></div>
-<link rel="stylesheet" href="./style/table.css">
+<div id='tables'>
+  <template class='table'><div class='table'>
+    <div class='label'></div>
+    <table>
+      <template class='row'><tr>
+        <td class='roll'></td>
+        <td><input type='text'></td>
+      </tr></template>
+    </table>
+  </div></template>
+</div>
+<link rel='stylesheet' href='./style/table.css'>
 
-<script type="module">
+<script type='module'>
   import * as clientm from './code/control/client.js'
   clientm.ready()
 </script>

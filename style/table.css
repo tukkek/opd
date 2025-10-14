@@ -1,0 +1,18 @@
+#tables{
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  grid-auto-flow: column;
+  gap: 2em;
+}
+#tables .table .label{
+  text-align: center;
+  font-weight: bold;
+}
+#tables .table tr input{
+  margin-bottom: .5em;
+}
+#tables .table tr input{
+  width:20vw;
+  margin-left: .2em;
+}

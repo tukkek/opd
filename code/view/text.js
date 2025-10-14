@@ -1,9 +1,39 @@
-import * as mapm from '../view/map.js'
+import * as tiem from '../../libraries/tie/tie.js'
+import * as clientm from '../control/client.js'
+import * as resizem from '../view/text-resize.js'
 
-const PARENT=document.querySelector('#text')
+const TEXT=document.querySelector('#text')
+const TITLE=TEXT.querySelector('.title')
+const INTRO=TEXT.querySelector('.intro')
+const OUTRO=TEXT.querySelector('.outro')
 
-export var title=PARENT.querySelector('.title')
+class Room extends tiem.Clone{
+  constructor(model){
+    super('template#room')
+    let element=this.select('textarea')
+    this.react(()=>model.description=element.value)
+    resizem.resize(element)
+    element.value=model.description
+  }
+}
+
+export function rename(){
+  clientm.dungeon.name=TITLE.value
+  clientm.create()
+}
 
 export function ready(){
-  title.oninput=()=>mapm.create()
+  TITLE.oninput=()=>rename()
+  for(let textarea of [INTRO,OUTRO]) resizem.resize(textarea)
+  INTRO.onchange=()=>clientm.dungeon.intro=INTRO.value
+  OUTRO.onchange=()=>clientm.dungeon.outro=OUTRO.value
+}
+
+export function draw(){
+  let dungeon=clientm.dungeon
+  TITLE.value=dungeon.name
+  INTRO.value=dungeon.intro
+  OUTRO.value=dungeon.outro
+  for(let element of Array.from(TEXT.querySelectorAll('li'))) element.remove()
+  for(let room of dungeon.rooms) new Room(room).create()
 }

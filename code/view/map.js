@@ -1,9 +1,9 @@
 import * as rotm from "../../libraries/rot/lib/index.js"
-import * as textm from '../view/text.js'
+import * as clientm from '../control/client.js'
 
 const PARENT=document.querySelector('#map')
 
-var version=1
+export var rooms=[]
 
 export function hash(text){//https://gist.github.com/hyamamoto/fd435505d29ebfa3d9716fd2be8d42f0
   let h = 0, l = text.length, i = 0
@@ -11,31 +11,39 @@ export function hash(text){//https://gist.github.com/hyamamoto/fd435505d29ebfa3d
   return h
 }
 
-export function create(){
-  let seed=`${textm.title.value}#${version}`
+export function draw(){
+  let dungeon=clientm.dungeon
+  let seed=`${dungeon.name}#${dungeon.map}`
   rotm.RNG.setSeed(Math.abs(hash(seed)))
   let previous=document.querySelector('#map canvas')
   if(previous) previous.remove()
-  let cellsize=6
-  let size=[1000,700].map((number)=>Math.floor(number/(2*cellsize)))
-  let width=size[0]*2
-  let height=size[1]
+  let cellsize=10
+  let size=[1000,700].map((number)=>Math.floor(number/cellsize))
+  let width=size[0]
+  let height=size[1]/2
   let map=new rotm.Map.Uniform(width,height,
-    {roomWidth:[20,30],roomHeight:[10,20],roomDugPercentage:.3})
+    {roomWidth:[10,20],roomHeight:[5,20],roomDugPercentage:.3})
   let display=new rotm.Display({width:width, height:height, fontSize:cellsize});
   let element=display.getContainer()
   document.querySelector('#map').appendChild(element)
   map.create(display.DEBUG)
+  rooms=map.getRooms()
+  for(let i of Math.step(0,rooms.length)){
+    let room=rooms[i]
+    let xy=[room.getRight()+room.getLeft(),room.getTop()+room.getBottom()].map((number)=>Math.floor(number/2))
+    display.draw(xy[0],+xy[1],i+1,'#ffffff')
+  }
 }
 
 export function retry(delta){
+  let dungeon=clientm.dungeon
+  let version=dungeon.map
   version+=delta
-  if(version<1) version=1
-  create()
+  dungeon.map=version>=1?version:1
+  clientm.create()
 }
 
 export function ready(){
-  create()
   PARENT.querySelector('.decrement').onclick=()=>retry(-1)
   PARENT.querySelector('.increment').onclick=()=>retry(+1)
 }

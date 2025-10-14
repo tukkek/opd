@@ -2,11 +2,32 @@
   grid-area:text;
   display:grid;
   align-content:baseline;
-  justify-content:center;
+  justify-items:center;
   padding:1em;
+  gap:1em;
 }
 #text .title{
   width:30vw;
   font-size:2em;
   text-align:center;
+  font-weight:bold;
+  font-family:Lobster Two;
+}
+#text .intro,#text .outro{
+  width: 98%;
+  padding: 2%;
+  text-align: center;
+  font-family:Noto Sans;
+}
+#text .controls{
+  display: grid;
+  grid-auto-flow: column;
+  gap: 1em;
+}
+#text ol{margin:0;}
+#text ol li{margin-bottom: 1em;}
+#text ol li:last-child{margin-bottom:0;}
+#text ol li textarea{
+  width:40vw;
+  font-family:Noto Sans;
 }
