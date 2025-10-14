@@ -8,11 +8,16 @@
 #tables .table .label{
   text-align: center;
   font-weight: bold;
-}
-#tables .table tr input{
   margin-bottom: .5em;
 }
+#tables .table tr input{margin-bottom: .5em;}
 #tables .table tr input{
   width:20vw;
   margin-left: .2em;
+  margin-bottom: 1em;
+}
+#tables .table .rolls{
+  display: flex;
+  justify-content: center;
+  gap: 1em;
 }

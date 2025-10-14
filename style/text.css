@@ -1,7 +1,7 @@
 #text{
   grid-area:text;
   display:grid;
-  align-content:baseline;
+  align-content:space-evenly;
   justify-items:center;
   padding:1em;
   gap:1em;

@@ -1,4 +1,5 @@
 import * as tiem from '../../libraries/tie/tie.js'
+import * as rpgm from '../../libraries/rpg.js'
 import * as clientm from '../control/client.js'
 
 class Row extends tiem.Clone{
@@ -15,10 +16,15 @@ class Table extends tiem.Clone{
   create(parent=false){
     super.create(parent)
     for(let i of Math.step(6,0,-1)){
-      let row=new Row().create(this.root)
+      let row=new Row().create(this.select('table'))
       row.select('.roll').innerText=`${i}.`
     }
     this.react(()=>update())
+    let buttons=this.selectall('.rolls button')
+    let inputs=Array.from(this.selectall('input')).reverse()
+    buttons[0].onclick=()=>window.alert(inputs[rpgm.low(0,inputs.length)].value)
+    buttons[1].onclick=()=>window.alert(inputs[rpgm.roll(0,inputs.length)].value)
+    buttons[2].onclick=()=>window.alert(inputs[rpgm.high(0,inputs.length)].value)
     return this
   }
 
