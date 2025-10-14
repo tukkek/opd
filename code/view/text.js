@@ -12,8 +12,8 @@ class Room extends tiem.Clone{
     super('template#room')
     let element=this.select('textarea')
     this.react(()=>model.description=element.value)
-    resizem.resize(element)
     element.value=model.description
+    resizem.resize(element)
   }
 }
 

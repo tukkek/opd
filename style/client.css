@@ -10,3 +10,4 @@ body{
   grid-template-rows:repeat(2,50vh);
   grid-template-columns:repeat(2,50vw);
 }
+input,textarea{border-radius: .2em;}

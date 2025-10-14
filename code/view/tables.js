@@ -39,21 +39,13 @@ export var foes=[
 export var loot=[
   'Lore',
   'Lore',
-  'Gear',
-  'Gear',
-  'Gear',
+  'Good gear',
+  'Fair gear',
+  'Poor gear',
   'Resources',
 ]
-export var gear=[
-  'Better',
-  'Good',
-  'Fair',
-  'Fair',
-  'Poor',
-  'Poorer',
-]
 
-var tables=[new Table('Foes',foes),new Table('Loot',loot),new Table('Gear',gear)]
+var tables=[new Table('Foes',foes),new Table('Loot',loot)]
 
 export function draw(){
   for(let i of Math.step(0,tables.length))
