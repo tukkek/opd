@@ -5,8 +5,9 @@ import * as textm from '../view/text.js'
 import * as tablesm from '../view/tables.js'
 import * as dungeonm from '../model/dungeon.js'
 import * as savem from '../control/save.js'
+import * as exitm from '../control/exit.js'
 
-const MODULES=[mapm,textm,savem,tablesm]
+const MODULES=[mapm,textm,savem,tablesm,exitm]
 
 export var dungeon=new dungeonm.Dungeon()
 

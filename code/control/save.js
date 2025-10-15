@@ -1,5 +1,6 @@
 import * as savem from '../../libraries/save.js'
 import * as clientm from '../control/client.js'
+import * as exitm from '../control/exit.js'
 
 class Manager extends savem.Manager{
   constructor(){super('#save','#load')}
@@ -7,6 +8,7 @@ class Manager extends savem.Manager{
   save(){
     let dungeon=clientm.dungeon
     super.save(dungeon,`${dungeon.name}.json`)
+    exitm.save()
   }
 
   async load(){
