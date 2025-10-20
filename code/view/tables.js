@@ -35,11 +35,11 @@ class Table extends tiem.Clone{
 }
 
 export var foes=[
-  'Harder',
-  'Hard',
-  'Fair',
-  'Easy',
-  'Easier',
+  'Boss',
+  'Hero',
+  'Hard foes',
+  'Fair foes',
+  'Easy foes',
   'Roll on adjacent-area',
 ]
 export var loot=[
