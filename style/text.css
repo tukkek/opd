@@ -6,26 +6,42 @@
   padding:1em;
   gap:1em;
 }
-#text .title{
-  width:30vw;
+#text #header{
+  display: grid;
+  justify-items: center;
+  gap:.5em;
+}
+#text #header .title{
   font-size:2em;
   text-align:center;
   font-weight:bold;
   font-family:Lobster Two;
+  width:30vw;
+}
+#text #header #details{
+	display:grid;
+	justify-content:space-evenly;
+	grid-auto-flow:column;
+	grid-template-columns:20vw 20vw;
+  gap:2vw;
+}
+#text #header #details input{
+  text-align:center;
+  font-size:.7em;
 }
 #text .intro,#text .outro{
-  width: 98%;
-  padding: 2%;
-  text-align: center;
+  width:98%;
+  padding:2%;
+  text-align:center;
   font-family:Noto Sans;
 }
 #text .controls{
-  display: grid;
-  grid-auto-flow: column;
-  gap: 1em;
+  display:grid;
+  grid-auto-flow:column;
+  gap:1em;
 }
 #text ol{margin:0;}
-#text ol li{margin-bottom: 1em;}
+#text ol li{margin-bottom:1em;}
 #text ol li:last-child{margin-bottom:0;}
 #text ol li textarea{
   width:40vw;

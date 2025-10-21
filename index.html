@@ -13,7 +13,13 @@
 <link rel='stylesheet' href='./style/map.css'>
 
 <div id='text'>
-  <input type='text' class='title' placeholder='Dungeon name'>
+  <div id='header'>
+    <input type='text' class='title' placeholder='Dungeon name'>
+    <div id='details'>
+      <input type='text' placeholder='Authors' id='authors'>
+      <input type='text' placeholder='Challenge-tier' id='challenge'>
+    </div>
+  </div>
   <textarea class='intro' placeholder='Intro.'></textarea>
   <ol>
     <template id='room'><li><textarea class='room' placeholder='Room description.'></textarea></li></template>

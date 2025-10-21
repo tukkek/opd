@@ -46,6 +46,8 @@ export class Dungeon{
     this.rooms=[]
     this.map=1//permutation of map to use
     this.tables=Array.create(2,()=>new Array(6).fill(''))
+    this.authors=''
+    this.challenge=''
   }
 
   resize(nrooms){
