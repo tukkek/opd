@@ -1,4 +1,5 @@
 import * as rotm from "../../libraries/rot/lib/index.js"
+import * as pointm from '../../libraries/point.js'
 import * as clientm from '../control/client.js'
 
 const PARENT=document.querySelector('#map')
@@ -9,6 +10,22 @@ export function hash(text){//https://gist.github.com/hyamamoto/fd435505d29ebfa3d
   let h = 0, l = text.length, i = 0
   if ( l > 0 ) while (i < l) h = (h << 5) - h + text.charCodeAt(i++) | 0
   return h
+}
+
+function walk(rooms){
+  rooms=Array.from(rooms)
+  let centers=new Map()
+  for(let room of rooms){
+    let center=[room.getLeft()+room.getRight(),room.getTop()+room.getBottom()].map((number)=>Math.floor(number/2))
+    centers.set(room,new pointm.Point(center[0],center[1]))
+  }
+  let walked=[rooms.shift()]
+  while(rooms.length){
+    let center=centers.get(walked.last)
+    rooms.sort((room1,room2)=>centers.get(room1).distance(center)-centers.get(room2).distance(center))
+    walked.push(rooms.shift())
+  }
+  return walked
 }
 
 export function draw(){
@@ -27,7 +44,7 @@ export function draw(){
   let element=display.getContainer()
   document.querySelector('#map').appendChild(element)
   map.create(display.DEBUG)
-  rooms=map.getRooms()
+  rooms=walk(map.getRooms())
   for(let i of Math.step(0,rooms.length)){
     let room=rooms[i]
     let xy=[room.getRight()+room.getLeft(),room.getTop()+room.getBottom()].map((number)=>Math.floor(number/2))
