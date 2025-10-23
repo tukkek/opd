@@ -2,12 +2,12 @@ import * as tiem from '../../libraries/tie/tie.js'
 import * as clientm from '../control/client.js'
 import * as resizem from '../view/text-resize.js'
 
-const TEXT=document.querySelector('#text')
-const TITLE=TEXT.querySelector('.title')
-const AUTHORS=TEXT.querySelector('#authors')
-const CHALLENGE=TEXT.querySelector('#challenge')
-const INTRO=TEXT.querySelector('.intro')
-const OUTRO=TEXT.querySelector('.outro')
+const VIEW=document.querySelector('#text')
+const TITLE=VIEW.querySelector('.title')
+const AUTHORS=VIEW.querySelector('#authors')
+const CHALLENGE=VIEW.querySelector('#challenge')
+const INTRO=VIEW.querySelector('.intro')
+const OUTRO=VIEW.querySelector('.outro')
 
 class Room extends tiem.Clone{
   constructor(model){
@@ -24,6 +24,12 @@ export function rename(){
   clientm.create()
 }
 
+export function reroll(){
+  if(!window.confirm('Create new room-contents?')) return
+  for(let room of clientm.dungeon.rooms) room.roll()
+  draw()
+}
+
 export function ready(){
   TITLE.oninput=()=>rename()
   AUTHORS.onchange=()=>clientm.dungeon.authors=AUTHORS.value
@@ -31,6 +37,7 @@ export function ready(){
   for(let textarea of [INTRO,OUTRO]) resizem.resize(textarea)
   INTRO.onchange=()=>clientm.dungeon.intro=INTRO.value
   OUTRO.onchange=()=>clientm.dungeon.outro=OUTRO.value
+  VIEW.querySelector('#reroll').onclick=()=>reroll()
 }
 
 export function draw(){
@@ -38,7 +45,7 @@ export function draw(){
   TITLE.value=dungeon.name
   INTRO.value=dungeon.intro
   OUTRO.value=dungeon.outro
-  for(let element of Array.from(TEXT.querySelectorAll('li'))) element.remove()
+  for(let element of Array.from(VIEW.querySelectorAll('li'))) element.remove()
   for(let room of dungeon.rooms) new Room(room).create()
   AUTHORS.value=dungeon.authors
   CHALLENGE.value=dungeon.challenge

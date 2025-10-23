@@ -30,10 +30,13 @@ const ROLL=new Object()
 
 export class Room{
   constructor(description=ROLL){
-    if(description==ROLL){
-      description=ROOM.roll()
-      if(description.length) description+='.'
-    }
+    this.description=description
+    if(description==ROLL) this.roll()
+  }
+
+  roll(){
+    let description=ROOM.roll()
+    if(description.length) description+='.'
     this.description=description
   }
 }
