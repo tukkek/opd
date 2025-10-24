@@ -30,6 +30,8 @@ export function reroll(){
   draw()
 }
 
+export function blank(){if(window.confirm('Discard contents and start a new dungeon?')) clientm.draft()}
+
 export function ready(){
   TITLE.oninput=()=>rename()
   AUTHORS.onchange=()=>clientm.dungeon.authors=AUTHORS.value
@@ -38,6 +40,7 @@ export function ready(){
   INTRO.onchange=()=>clientm.dungeon.intro=INTRO.value
   OUTRO.onchange=()=>clientm.dungeon.outro=OUTRO.value
   VIEW.querySelector('#reroll').onclick=()=>reroll()
+  VIEW.querySelector('#new').onclick=()=>blank()
 }
 
 export function draw(){

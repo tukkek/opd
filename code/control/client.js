@@ -23,7 +23,9 @@ export function ready(){
   create()
 }
 
-export function load(data){
-  dungeon=dungeonm.load(data)
+export function draft(dungeonp=false){
+  dungeon=dungeonp||new dungeonm.Dungeon()
   create()
 }
+
+export function load(data){draft(dungeonm.load(data))}
