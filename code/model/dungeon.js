@@ -44,13 +44,13 @@ export class Room{
 export class Dungeon{
   constructor(){
     this.name=''
-    this.intro=''
-    this.outro=''
-    this.rooms=[]
-    this.map=1//permutation of map to use
-    this.tables=Array.create(2,()=>new Array(7).fill(''))
     this.authors=''
     this.challenge=''
+    this.intro=''
+    this.rooms=[]
+    this.outro=''
+    this.tables=Array.create(2,()=>new Array(7).fill(''))
+    this.map=1//permutation of map to use
   }
 
   resize(nrooms){
